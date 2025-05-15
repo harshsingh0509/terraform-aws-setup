@@ -12,7 +12,7 @@ resource "aws_instance" "ubuntu_server" {
 }
 
 resource "aws_security_group" "allow_ssh" {
-  vpc_id      = aws_vpc.main.id  # ✅ Ensures correct VPC association
+  vpc_id      = aws_vpc.main.id  
   name        = "allow_ssh"
   description = "Allow SSH inbound traffic"
 
@@ -20,7 +20,7 @@ resource "aws_security_group" "allow_ssh" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["52.91.243.29/32"]  # ✅ Restricting SSH access to your IP
+    cidr_blocks = ["52.91.243.29/32"]  
   }
 
   egress {
